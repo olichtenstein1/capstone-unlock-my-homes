@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { UnlockMyHomes } from './components/UnlockMyHomes';
 
+// wrap BrowserRouter around UnlockMyHomes module to enable routing for the application
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <UnlockMyHomes />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
