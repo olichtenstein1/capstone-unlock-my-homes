@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import "./PropertyForm.css"
 
 
-
+// form for the LISTING AGENT to add a property
 export const PropertyForm = () => {
 
     const [property, updateProperty] = useState({
@@ -12,13 +12,12 @@ export const PropertyForm = () => {
         city: "",
         state: "",
         zipcode: "",
-        //userId will be localStorage
         userId: 2,
         
     })
 
     const history = useHistory()
-    // function designed for hiring employees
+    
     const submitProperty = () => {
 
         const newProperty = {
@@ -27,7 +26,7 @@ export const PropertyForm = () => {
             state: property.state,
             zipcode:property.zipcode,
             // use get local storage
-            userId: 2
+            userId: parseInt(localStorage.getItem("user_agent"))
         }
 
         // send data to the api
@@ -38,8 +37,8 @@ export const PropertyForm = () => {
             },
             body: JSON.stringify(newProperty)
         }
-        // return data
-        return fetch("http://localhost:8088/PropertyForm", fetchOption)
+        // return data to properties 
+        return fetch("http://localhost:8088/properties", fetchOption)
             .then(() => {
                 history.push("/")
             })
@@ -53,7 +52,6 @@ export const PropertyForm = () => {
                     <div className="form-group">
                         <label htmlFor="homeAddress">Address:</label>
                         <input
-                        //change event for description state of ticket 
                             onChange={
                                 (evt) => {
                                     //creating a copy of the existing state
@@ -78,7 +76,6 @@ export const PropertyForm = () => {
                     <div className="form-group">
                         <label htmlFor="city">City:</label>
                         <input
-                        //change event for description state of ticket 
                             onChange={
                                 (evt) => {
                                     //creating a copy of the existing state
@@ -89,7 +86,7 @@ export const PropertyForm = () => {
                                     updateProperty(copy)
                                 }
                             }
-                            // ?
+                            
                             required autoFocus
                             type="select"
                             className="form-control"
@@ -103,7 +100,6 @@ export const PropertyForm = () => {
                     <div className="form-group">
                         <label htmlFor="state">State:</label>
                         <input
-                        //change event for description state of ticket 
                             onChange={
                                 (evt) => {
                                     //creating a copy of the existing state
@@ -114,7 +110,7 @@ export const PropertyForm = () => {
                                     updateProperty(copy)
                                 }
                             }
-                            // ?
+                            
                             required autoFocus
                             type="select"
                             className="form-control"
@@ -128,7 +124,6 @@ export const PropertyForm = () => {
                     <div className="form-group">
                         <label htmlFor="zipcode">Zipcode:</label>
                         <input
-                        //change event for description state of ticket 
                             onChange={
                                 (evt) => {
                                     //creating a copy of the existing state
@@ -139,7 +134,7 @@ export const PropertyForm = () => {
                                     updateProperty(copy)
                                 }
                             }
-                            // ?
+                            
                             required autoFocus
                             type="select"
                             className="form-control"

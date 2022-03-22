@@ -41,11 +41,11 @@ export const RequestForm = () => {
 
         const newRequest = {
         showingDateTime: form.showingDateTime,
-        amountOffered: form.amountOffered,
+        amountOffered: parseInt(form.amountOffered),
         completed: false,
-        propertyId: form.propertyId,
+        propertyId: parseInt(form.propertyId),
         // userId will be getLocalStorage
-        userId: 2,
+        userId: parseInt(localStorage.getItem("user_agent")),
         isAccepted: false,
         isConfirmed: false
         }
@@ -59,7 +59,7 @@ export const RequestForm = () => {
             body: JSON.stringify(newRequest)
         }
         // return data
-        return fetch("http://localhost:8088/requests", fetchOption)
+        return fetch("http://localhost:8088/listingRequests", fetchOption)
             .then(() => {
                 history.push("/requestList")
             })
@@ -74,7 +74,7 @@ export const RequestForm = () => {
                     <div className="form-group">
                         <label htmlFor="property">Property:</label>
                         <select
-                        //change event for description state of employee
+                        
                             onChange={
                                 (evt) => {
                                     //creating a copy of the existing state
@@ -111,7 +111,7 @@ export const RequestForm = () => {
                     <div className="form-group">
                         <label htmlFor="date">DateTime:</label>
                         <input type = "datetime-local"
-                        //change event for description state of ticket 
+                        
                             onChange={
                                 (evt) => {
                                     //creating a copy of the existing state
