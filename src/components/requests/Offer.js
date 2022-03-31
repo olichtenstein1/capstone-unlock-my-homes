@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
 export const Offer = () => {
 const [offer, assignOffer] = useState({})
 const { offerId } = useParams()
-
+const conflictDialog = useRef()
 useEffect(
     () => {
         return fetch(`http://localhost:8088/listingRequests/${offerId}?_expand=property&_expand=user`)
@@ -25,6 +25,7 @@ const history = useHistory()
             amountOffered: parseInt(offer.amountOffered),
             completed: false,
             propertyId: parseInt(offer.propertyId),
+            clientId: parseInt(offer.clientId),
             // userId will be getLocalStorage
             userId: parseInt(localStorage.getItem("user_agent")),
             isAccepted: true,
@@ -41,18 +42,24 @@ const history = useHistory()
             body: JSON.stringify(confirmedRequest)
         })
             .then(() => {
-                history.push("/")
+                conflictDialog.current.showModal()
             })
     }
 
 
 return (
     <>
+        <dialog className="dialog dialog--password" ref={conflictDialog}>
+                <div>Offer Accepted! 
+                </div>
+                <button className="button--close" onClick={() => {history.push("/")}
+}>Close</button>
+            </dialog>
         <h2> Showing Details </h2>
         <section className="offer">
         <h3 className="offer__homeAddress"> Address: {offer.property?.homeAddress} </h3>
-        <h4 className="offer__user">Buyers Agent -</h4>
-        <h4 className="offer__showingDateTime">Showing Time - </h4>
+        <h4 className="offer__user">Buyers Agent -{offer.user?.name}</h4>
+        <h4 className="offer__showingDateTime">Showing Time - {offer.showingDateTime}</h4>
         </section>
 
         <button onClick={evt => {

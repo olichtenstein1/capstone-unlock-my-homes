@@ -29,6 +29,7 @@ const history = useHistory()
             amountOffered: parseInt(appointment.amountOffered),
             completed: true,
             propertyId: parseInt(appointment.propertyId),
+            clientId: parseInt(appointment.clientId),
             // userId will be getLocalStorage
             userId: parseInt(localStorage.getItem("user_agent")),
             isAccepted: true,
@@ -55,8 +56,8 @@ return (
         <h2> Showing Details </h2>
         <section className="offer">
         <h3 className="offer__homeAddress"> Address: {appointment.property?.homeAddress} </h3>
-        <h4 className="offer__user">Buyers Agent -</h4>
-        <h4 className="offer__showingDateTime">Showing Time - </h4>
+        
+        <h4 className="offer__showingDateTime"> Showing Time - {appointment.showingDateTime}</h4>
         </section>
 
         <button onClick={evt => {
