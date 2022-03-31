@@ -8,16 +8,13 @@ import "./NavBar.css"
 export const NavBar = (props) => {
     return (
         <ul className="navbar">
+
             <li className="navbar__item">
-                <Link className="navbar__link" to="/propertyForm">Add a Property</Link>
+                <Link className="navbar__link" to="/requestForm">Create a Request</Link>
             </li>
 
             <li className="navbar__item">
                 <Link className="navbar__link" to="/requestList">Request List</Link>
-            </li>
-
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/requestForm">Create a Request</Link>
             </li>
 
             <li className="navbar__item">
@@ -27,17 +24,18 @@ export const NavBar = (props) => {
             <li className="navbar__item">
                 <Link className="navbar__link" to="/appointmentList">My Appointments</Link>
             </li>
-
+            <div className="logout">
             <li className="navbar__item">
                 <Link className="navbar__link" to="#"
-                onClick={
-                    () => {
-                        localStorage.removeItem("user_agent")
-                    }
-                }>
+                    onClick={
+                        () => {
+                            localStorage.removeItem("user_agent")
+                        }
+                    }>
                     Logout
-                    </Link>
+                </Link>
             </li>
+            </div>
 
 
         </ul>

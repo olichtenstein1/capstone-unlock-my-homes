@@ -10,6 +10,7 @@ export const RequestForm = () => {
         amountOffered: "",
         completed: false,
         propertyId: 1,
+        clientId: 1,
         //userId will be localStorage
         userId: 2,
         //isAccepted
@@ -34,6 +35,19 @@ export const RequestForm = () => {
         []
     )
 
+    const [clients, setClient] = useState([])
+
+    useEffect(
+        () => {
+            fetch("http://localhost:8088/clients")
+                .then(res => res.json())
+                .then((data) => {
+                    setClient(data)
+                })
+        },
+        []
+    )
+
 
     const history = useHistory()
     // function designed for submitting requests
@@ -44,6 +58,7 @@ export const RequestForm = () => {
         amountOffered: parseInt(form.amountOffered),
         completed: false,
         propertyId: parseInt(form.propertyId),
+        clientId: parseInt(form.clientId),
         // userId will be getLocalStorage
         userId: parseInt(localStorage.getItem("user_agent")),
         isAccepted: false,
@@ -68,6 +83,20 @@ export const RequestForm = () => {
 
     return (
         <form className="requestForm">
+
+<li className="navbar__item">
+            <button onClick={() => history.push("/propertyForm")}>
+                Add a Property
+            </button>
+                
+            </li>
+
+            <li className="navbar__item">
+            <button onClick={() => history.push("/clientForm")}>
+                Add a Client
+            </button>
+            </li>
+
                 <h2 className="requestForm__title">Create A Request</h2>
 
                 <fieldset>
@@ -99,6 +128,43 @@ export const RequestForm = () => {
                                     (objectProperty) => {
                                         return <option value={objectProperty.id} keys={`property--${objectProperty.id}`}>
                                             {objectProperty.homeAddress}
+                                        </option>
+                                    }
+                                )
+                            }
+                            </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="client">Client:</label>
+                        <select
+                        
+                            onChange={
+                                (evt) => {
+                                    //creating a copy of the existing state
+                                    const copy = {...form}
+                                    //modifying copy by changing values to what was inputted
+                                    copy.clientId = evt.target.value
+                                    // take that copy and make that the new state
+                                    updateForm(copy)
+                                }
+                            }
+                           
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="clients"
+                            
+                            >
+
+                             <option value="0" key={'client--'}>Choose a Client </option>
+                            {
+                                clients.map(
+                                    (objectClient) => {
+                                        return <option value={objectClient.id} keys={`client--${objectClient.id}`}>
+                                            {objectClient.name}
                                         </option>
                                     }
                                 )

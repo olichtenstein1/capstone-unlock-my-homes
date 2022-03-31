@@ -9,6 +9,8 @@ import { Offer } from "./requests/Offer"
 import { AppointmentList } from "./appointments/AppointmentList"
 import { Appointment } from "./appointments/Appointment"
 import { CompletedAppointments } from "./appointments/CompletedAppointments"
+import { ClientForm } from "./clients/ClientForm"
+import { HomePage } from "./homepage/HomePage"
 
 // component for setting up the individual routes and which component
 // will be displayed when a browser route is changed in the url
@@ -21,6 +23,15 @@ export const ApplicationViews = () => {
     // when the browser url matches the path the routed component will be rendered
     return (
         <>
+
+            <Route exact path="/">
+                < HomePage />
+            </Route>
+
+
+            <Route exact path="/clientForm">
+                < ClientForm />
+            </Route>
 
             <Route exact path="/propertyForm">
                 < PropertyForm />
@@ -53,10 +64,12 @@ export const ApplicationViews = () => {
             <Route exact path="/appointmentList/:appointmentId(\d+)">
                 < Appointment />
             </Route>
-            
+
             <Route exact path="/completedAppointments">
-                < CompletedAppointments/>
+                < CompletedAppointments />
             </Route>
+
+
 
         </>
     )

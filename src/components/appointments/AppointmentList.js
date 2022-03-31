@@ -10,7 +10,7 @@ export const AppointmentList = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:8088/listingRequests?_expand=user&_expand=property&isAccepted=true&isConfirmed=true")
+            fetch("http://localhost:8088/listingRequests?_expand=user&_expand=client&_expand=property&isAccepted=true&isConfirmed=true")
                 .then(res => res.json())
                 .then((data) => {
                     setAppointments(data)
@@ -37,11 +37,11 @@ export const AppointmentList = () => {
                                 </div>
                             </div>
                             <div> <h4> Client Info</h4>
-                                <div> Name:
+                                <div> Name: {app.client.name}
                                 </div>
-                                <div>Email:
+                                <div>Email: {app.client.email}
                                 </div>
-                                <div>Phone Number:
+                                <div>Phone Number: {app.client.phoneNumber}
                                 </div>
 
                             </div><div>

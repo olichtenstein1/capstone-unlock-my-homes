@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
 export const Request = () => {
-    
+    const conflictDialog = useRef()
     const [request, assignRequest] = useState({})
     const { listingRequestId } = useParams()
     
@@ -26,6 +26,8 @@ export const Request = () => {
             amountOffered: parseInt(request.amountOffered),
             completed: false,
             propertyId: parseInt(request.propertyId),
+            clientId: parseInt(request.clientId),
+            
             // userId will be getLocalStorage
             userId: parseInt(localStorage.getItem("user_agent")),
             isAccepted: true,
@@ -42,12 +44,18 @@ export const Request = () => {
             body: JSON.stringify(acceptedRequest)
         })
             .then(() => {
-                history.push("/")
+                conflictDialog.current.showModal()
             })
     }
 
     return (
         <>
+         <dialog className="dialog dialog--password" ref={conflictDialog}>
+                <div>Request Accepted! <div>Pending Listing Agent Approval</div>
+                </div>
+                <button className="button--close" onClick={() => {history.push("/")}
+}>Close</button>
+            </dialog>
         <h2> Request Details </h2>
         <section className="request">
         <h3 className="request__homeAddress">{ request.property?.homeAddress }</h3>

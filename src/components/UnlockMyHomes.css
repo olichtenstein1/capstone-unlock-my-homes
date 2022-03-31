@@ -1,0 +1,14 @@
+.topSection {
+    background: rgb(212, 227, 255);
+    background-size: contain;
+    padding: 15vh;
+}
+
+.title {
+    text-align: center;
+    }
+
+.container__UMH {
+    background-color: aquamarine;
+    
+}

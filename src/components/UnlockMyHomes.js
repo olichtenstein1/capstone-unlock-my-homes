@@ -1,9 +1,10 @@
 import React from "react"
 import { NavBar } from "./nav/NavBar";
 import { ApplicationViews } from "./ApplicationViews";
-import { Redirect, Route } from "react-router-dom";
+import { Link, Redirect, Route } from "react-router-dom";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+import "./UnlockMyHomes.css"
 
 export const UnlockMyHomes = () => {
     return (
@@ -13,14 +14,25 @@ export const UnlockMyHomes = () => {
         if (localStorage.getItem("user_agent")) {
           return (
             <>
-              <NavBar />
+            
+            <div className="topSection">
+            <h1 className="title">Unlock My Homes</h1>
+            <Link className="title" to="/">Home</Link>
+           
+             
+              
+              
+              
               <ApplicationViews />
+              
+              </div>
             </>
           );
         } else {
           return <Redirect to="/login" />;
         }
       }}
+      
     />
 
     <Route path="/login">

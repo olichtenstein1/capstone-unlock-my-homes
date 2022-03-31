@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import "./Login.css"
 
 export const Register = (props) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({isListingAgent:false})
     const conflictDialog = useRef()
 
     const history = useHistory()
@@ -68,11 +68,15 @@ export const Register = (props) => {
                 </fieldset>
                 <fieldset>
                     <label htmlFor="isListingAgent"> Are you a Listing Agent? </label>
-                    <input onChange={updateAgentType} type="checkbox" id="isListingAgent" className="form-control" placeholder="" required />
+                    <input onChange={updateAgentType} type="checkbox" id="isListingAgent" className="form-control" placeholder="" defaultValue={false} />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="phoneNumber"> Phone Number </label>
+                    <input onChange={updateUser} type="text" id="phoneNumber" className="form-control" placeholder="Phone Number" required />
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>
