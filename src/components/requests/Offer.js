@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import "./Offer.css"
 
 export const Offer = () => {
 const [offer, assignOffer] = useState({})
@@ -56,10 +57,14 @@ return (
 }>Close</button>
             </dialog>
         <h2> Showing Details </h2>
-        <section className="offer">
+        <section className="offerDetails">
         <h3 className="offer__homeAddress"> Address: {offer.property?.homeAddress} </h3>
-        <h4 className="offer__user">Buyers Agent -{offer.user?.name}</h4>
-        <h4 className="offer__showingDateTime">Showing Time - {offer.showingDateTime}</h4>
+        <div>
+        <h4 className="offer__user">Buyers Agent - {offer.user?.name}</h4>
+        <ul className="offer__userInfo"> {offer.user?.email} </ul>
+        <ul className="offer__userInfo"> {offer.user?.phoneNumber} </ul>
+        </div>
+        <h4 className="offer__showingDateTime">Showing Time : {offer.showingDateTime}</h4>
         </section>
 
         <button onClick={evt => {

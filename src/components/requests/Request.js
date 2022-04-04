@@ -58,6 +58,7 @@ export const Request = () => {
 }>Close</button>
             </dialog>
         <h2> Request Details </h2>
+        
         <section className="requestDetails">
         <h3 className="request__homeAddress">{ request.property?.homeAddress }</h3>
         <div className="request__city"> {request.property?.city} </div>
@@ -66,7 +67,11 @@ export const Request = () => {
         <h4 className="request__user">Listing Agent - { request.user?.name} </h4>
         <h4 className="request__showingDateTime">Showing Time - { request.showingDateTime} </h4>
         <h4 className="request__amountOffered">Amount Offered - ${ request.amountOffered} </h4>
+       
         </section>
+        
+        
+
 
         <button onClick={evt => {
                     evt.preventDefault()

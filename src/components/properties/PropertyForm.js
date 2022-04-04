@@ -5,7 +5,7 @@ import "./PropertyForm.css"
 
 // form for the LISTING AGENT to add a property
 export const PropertyForm = () => {
-
+    
     const [property, updateProperty] = useState({
 
         homeAddress: "",
@@ -40,11 +40,13 @@ export const PropertyForm = () => {
         // return data to properties 
         return fetch("http://localhost:8088/properties", fetchOption)
             .then(() => {
-                history.push("/")
+                history.push("/requestForm")
             })
         }
 
     return (
+        
+        
         <form className="propertyForm">
             <h2 className="propertyForm__title">Add a Property</h2>
 
@@ -159,5 +161,6 @@ export const PropertyForm = () => {
             
             
             </form>
+            
     )
 }

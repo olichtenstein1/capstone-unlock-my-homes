@@ -29,7 +29,8 @@ export const AppointmentList = () => {
             {
                 appointment.map(
                     (app) => {
-                        return <p key={`appointment--${app.id}`}>
+                        return <p className="appointment" key={`appointment--${app.id}`}>
+                            <div className="appointmentInfo">
                             <div> <h2> My Appointments </h2>
                                 <div> Address : <Link to={`/appointmentList/${app.id}`}>{app.property.homeAddress}</Link>
                                 </div>
@@ -44,9 +45,9 @@ export const AppointmentList = () => {
                                 <div>Phone Number: {app.client.phoneNumber}
                                 </div>
 
-                            </div><div>
-                            <button onClick={() => history.push("/completedAppointments")}>View Completed Appointments</button>
                             </div>
+                            </div>
+                            
                         </p>
 
 
@@ -55,6 +56,9 @@ export const AppointmentList = () => {
                     }
                 )
             }
+            <div>
+                            <button onClick={() => history.push("/completedAppointments")}>View Completed Appointments</button>
+                            </div>
         </>
     )
 

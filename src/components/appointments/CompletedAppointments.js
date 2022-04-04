@@ -28,8 +28,8 @@ export const CompletedAppointments = () => {
             {
                 appointment.map(
                     (app) => {
-                        return <p key={`appointment--${app.id}`}>
-                            <div> <h2> Completed Appointments </h2>
+                        return <p className="completedAppointment" key={`appointment--${app.id}`}>
+                            <div> 
                                 <div> Address :{app.property.homeAddress}
                                 </div>
                                 <div> Date/Time : {app.showingDateTime}

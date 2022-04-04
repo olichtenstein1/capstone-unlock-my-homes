@@ -38,7 +38,7 @@ export const ClientForm = () => {
         // return data to clients 
         return fetch("http://localhost:8088/clients", fetchOption)
             .then(() => {
-                history.push("/")
+                history.push("/requestForm")
             })
         }
 
