@@ -7,8 +7,12 @@ export const HomePage = () => {
     return (
         <>
         
-        <NavBar />
         
+        <NavBar />
+       
+        
+
+
         </>
     )
 }

@@ -10,14 +10,27 @@
     flex-wrap: wrap;
     flex-direction: column;
     color: rgb(0, 0, 0);
+    
 }
 
 .navbar__link{
     color: black;
     font-size: 25px;
+    border: 2px solid black;
+    text-decoration: none;
+    padding: 4px 8px 4px 8px;
+    border-radius: 15px;
+    background-color: antiquewhite;
+    
+}
+
+.requestHome{
+    padding-top: 20px;
+
 }
 
 /* .logout{
     text-align-last: center;
     
 } */
+

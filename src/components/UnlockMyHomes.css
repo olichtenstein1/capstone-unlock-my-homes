@@ -6,9 +6,29 @@
 
 .title {
     text-align: center;
+    color: #DD7020
+
+    ;
     }
+
+.homeLink {
+    display: flex;
+    flex-basis: 25%;
+    
+    justify-content: center;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    }
+
+
+    
 
 .container__UMH {
     background-color: aquamarine;
     
+}
+
+html {
+    background-color: rgb(212, 227, 255);
 }

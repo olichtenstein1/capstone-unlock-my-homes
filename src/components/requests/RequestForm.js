@@ -175,7 +175,7 @@ export const RequestForm = () => {
 
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="date">DateTime:</label>
+                        <label htmlFor="date">Date/Time:</label>
                         <input type = "datetime-local"
                         
                             onChange={

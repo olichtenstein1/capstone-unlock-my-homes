@@ -17,7 +17,10 @@ export const UnlockMyHomes = () => {
             
             <div className="topSection">
             <h1 className="title">Unlock My Homes</h1>
-            <Link className="title" to="/">Home</Link>
+
+            <div className="homeButton">
+            <Link className="homeLink" to="/">Home</Link>
+            </div>
            
              
               

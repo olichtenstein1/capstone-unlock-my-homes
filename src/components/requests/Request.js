@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import "./Request.css"
 
 export const Request = () => {
     const conflictDialog = useRef()
@@ -57,7 +58,7 @@ export const Request = () => {
 }>Close</button>
             </dialog>
         <h2> Request Details </h2>
-        <section className="request">
+        <section className="requestDetails">
         <h3 className="request__homeAddress">{ request.property?.homeAddress }</h3>
         <div className="request__city"> {request.property?.city} </div>
         <div className="request__state"> {request.property?.state} </div> 
