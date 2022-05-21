@@ -2,24 +2,35 @@
     background: rgb(212, 227, 255);
     background-size: contain;
     padding: 15vh;
+    
 }
+
 
 .title {
     text-align: center;
-    color: #DD7020
+    color: #DD7020;
+    font-family: 'Courier New', Courier, monospace
+    
 
     ;
     }
 
 .homeLink {
-    display: flex;
-    flex-basis: 25%;
-    
-    justify-content: center;
-    padding-bottom: 10px;
+    border: 2px solid black;
     text-decoration: none;
     color: black;
+    background-color: antiquewhite;
+    border-radius: 7px;
+    padding: 3px;
     }
+
+.homeButton {
+    display: flex;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+
 
 
     

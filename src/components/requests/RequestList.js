@@ -32,7 +32,7 @@ export const RequestList = () => {
             .then(() => {updateRequest()
             })
     }
-
+    
 
     // const isListingAgent = localStorage.getItem("user_agent")
     // ? JSON.parse(localStorage.getItem("user_agent"))
@@ -71,7 +71,7 @@ export const RequestList = () => {
                            
                             {listingRequest.userId === parseInt(localStorage.getItem("user_agent"))
 
-                             ? <button onClick={() => {
+                             ? <button className="button1" onClick={() => {
                                 deleteRequest(listingRequest.id)
                             }}>Delete</button> : null}
 

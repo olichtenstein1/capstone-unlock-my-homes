@@ -26,12 +26,13 @@ export const AppointmentList = () => {
     return (
 
         <>
+        <h1> My Appointments </h1>
             {
                 appointment.map(
                     (app) => {
                         return <p className="appointment" key={`appointment--${app.id}`}>
                             <div className="appointmentInfo">
-                            <div> <h2> My Appointments </h2>
+                            <div> <h2> Appointment Details </h2>
                                 <div> Address : <Link to={`/appointmentList/${app.id}`}>{app.property.homeAddress}</Link>
                                 </div>
                                 <div> Date/Time : {app.showingDateTime}

@@ -21,13 +21,7 @@ export const Appointment = () => {
         [appointmentId]
     )
 
-    const updateRequest = () => {
-        fetch(`http://localhost:8088/listingRequests/${appointmentId}?_expand=property&_expand=user&_expand=client`)
-        .then(res => res.json())
-                .then((data) => {
-                    assignAppointment(data)
-    }
-                )}
+    
 
     const history = useHistory()
 
@@ -57,8 +51,6 @@ export const Appointment = () => {
             .then(() => {
                 history.push("/")
             })
-            .then(() => {updateRequest()
-            })
     }
 
 
@@ -66,6 +58,7 @@ export const Appointment = () => {
         <>
             <h2> Showing Details </h2>
             <section className="appointmentDetails">
+            <h2> Appointment Details </h2>
                 <h4 className="offer__homeAddress"> Address: {appointment.property?.homeAddress} </h4>
 
                 <h4 className="offer__showingDateTime"> Showing Time - {appointment.showingDateTime}</h4>

@@ -8,6 +8,8 @@ export const HomePage = () => {
         <>
         
         
+        
+
         <NavBar />
        
         

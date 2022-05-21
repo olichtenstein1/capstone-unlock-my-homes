@@ -52,9 +52,9 @@ export const RequestForm = () => {
     const history = useHistory()
     // function designed for submitting requests
     const submitRequest = () => {
-
+        let date = new Date(form.showingDateTime).toLocaleString()
         const newRequest = {
-        showingDateTime: form.showingDateTime,
+        showingDateTime: date,
         amountOffered: parseInt(form.amountOffered),
         completed: false,
         propertyId: parseInt(form.propertyId),
